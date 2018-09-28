@@ -18,4 +18,10 @@ node {
         sh "${mvnHome}/bin/mvn test-compile failsafe:integration-test" 
         echo 'FINE INTEGRATION TEST'
     }
+    
+    stage('build'){
+        echo 'INIZIO BUILD'
+        sh "${mvnHome}/bin/mvn package" 
+        echo 'FINE BUILD'
+    }    
 }
