@@ -1,0 +1,21 @@
+node {
+    def mvnHome = tool "Maven"
+    
+    stage('checkout project') {
+        echo 'INIZIO CHECKOUT PROJECT'
+        git 'https://github.com/fabiostrada77/devops-starter'
+        echo 'FINE CHECKOUT PROJECT'
+    }
+    
+    stage('unit test'){
+        echo 'INIZIO JUNIT TEST'
+        sh "${mvnHome}/bin/mvn clean test" 
+        echo 'FINE JUNIT TEST'
+    }
+    
+    stage('integration test'){
+        echo 'INIZIO INTEGRATION TEST'
+        sh "${mvnHome}/bin/mvn test-compile failsafe:integration-test" 
+        echo 'FINE INTEGRATION TEST'
+    }
+}
