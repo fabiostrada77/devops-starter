@@ -3,7 +3,7 @@ node {
     
     stage('checkout project') {
         echo 'INIZIO CHECKOUT PROJECT'
-        git 'https://github.com/fabiostrada77/devops-starter'
+        checkout scm
         echo 'FINE CHECKOUT PROJECT'
     }
     
